@@ -1,0 +1,9 @@
+Package: com.nathanaccidentally.material
+Name: Material
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: Make notifications better-ish again!
+Maintainer: nathanaccidentally <nathanaccidentally@gmail.com>
+Author: nathanaccidentally <nathanaccidentally@gmail.com>
+Section: Tweaks
