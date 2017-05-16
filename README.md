@@ -9,7 +9,7 @@ Material does a couple things:
 
 # Bugs 🐜
 
-1. Transparent CC.
-2. Transparent Widgets.
+~~1. Transparent CC.~~
+~~2. Transparent Widgets.~~
 
-Both of these will be fixed by tonight. I know why they happen.
+**Fixed thanks to AppleBetas!**
