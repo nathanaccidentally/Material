@@ -7,18 +7,10 @@
 @interface _UIBackdropView : UIView
 @end
 
+@interface NCMaterialView : UIView
+@end
+
 %hook _UIBackdropEffectView
-
--(void)layoutSubviews {
-	%orig;
-	if([NSStringFromClass([self.superview class]) isEqualToString:@"NCMaterialView"]) [self setHidden:YES];
-}
-
-%end
-
-// Both views need to be hidden.
-
-%hook _UIBackdropView
 
 -(void)layoutSubviews {
 	%orig;
@@ -40,6 +32,14 @@
 	%orig([UIColor clearColor]);
 }
 
+-(void)layoutSubviews { // Thanks AppleBetas for help with this fix, it means a lot. <3
+    %orig;
+    if([NSStringFromClass([self.superview class]) isEqualToString:@"NCNotificationShortLookView"]) {
+        UIView *backdropView = MSHookIvar< _UIBackdropView *>(self, "_backdropView");
+        [backdropView setHidden:YES];
+    }
+}
+
 %end
 
 // Great makes background of NC cells transparent.
@@ -53,5 +53,5 @@
 
 %end
 
-// Thanks to ipad_kid for the idea! :)
+// Thanks to ipad_kid for the idea! Also, thanks to AppleBetas for help!
 // More screen realestate = happy boy.
